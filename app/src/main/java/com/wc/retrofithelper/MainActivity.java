@@ -3,8 +3,6 @@ package com.wc.retrofithelper;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -13,14 +11,11 @@ import com.wc.retrofithelper.api.ResultData;
 import com.wc.retrofithelper.api.RetrofitCallback;
 import com.wc.retrofithelper.api.WeatherService;
 import com.wc.retrofithelper.common.CommonTransformer;
-import com.wc.retrofithelper.common.StringCallback;
 import com.wc.retrofithelper.model.WeatherInfo;
 import com.wc.retrofithelper.retrofit.RetrofitClient;
-import com.wc.retrofithelper.retrofit.RetrofitConfig;
-
-import io.reactivex.functions.Consumer;
 
 public class MainActivity extends AppCompatActivity {
+
     TextView textview;
 
     @Override

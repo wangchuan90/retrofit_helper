@@ -32,7 +32,7 @@ public class MainApplication extends Application {
         map.put("key5", "value1");
         RetrofitConfig.getInstance().setMap(map);
 //        设置日志
-        KLog.init(false);
+        KLog.init(true);
     }
 
     public static MainApplication getInstance() {
