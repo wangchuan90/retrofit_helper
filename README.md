@@ -1,4 +1,20 @@
 # retrofithelper
+二次封装retrofit，提高开发效率
+
+### 配置
+
+基本依赖
+
+```
+api 'com.squareup.retrofit2:retrofit:2.6.2'
+api 'com.squareup.retrofit2:converter-gson:2.6.2'
+api 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
+api 'com.squareup.okhttp3:logging-interceptor:4.2.2'
+api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+```
+
+导入retrofit_helper.jar
+
 ### 使用
 
 application：
