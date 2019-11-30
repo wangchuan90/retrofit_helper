@@ -15,6 +15,8 @@ api 'io.reactivex.rxjava2:rxandroid:2.1.1'
 
 导入retrofit_helper.jar
 
+百度云下载地址：https://pan.baidu.com/s/1kp0qdKw1I-ioj8UZ2Bto2w
+
 ### 使用
 
 application：
