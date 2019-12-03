@@ -15,7 +15,7 @@ api 'io.reactivex.rxjava2:rxandroid:2.1.1'
 
 导入retrofit_helper.jar
 
-百度云下载地址：https://pan.baidu.com/s/1kp0qdKw1I-ioj8UZ2Bto2w
+百度云下载地址：https://pan.baidu.com/s/150fiAmTplVPRdD2KFrTsCg
 
 ### 使用
 
@@ -62,4 +62,45 @@ RetrofitClient.getInstanceRetrofit().create(WeatherService.class).getWeatherInfo
         textview.setText(new Gson().toJson(weatherInfo));
     }
 });
+```
+
+异常处理：
+
+```
+/**
+ * 公共失败处理
+ */
+@Override
+public void onFailed(ApiException ex) {
+    Toast.makeText(MainApplication.getInstance(), ex.getErrorMsg(), Toast.LENGTH_SHORT).show();
+}
+```
+
+ApiException
+
+```
+/**
+ * 未知错误
+ */
+public static final int UNKNOWN = 1000;
+/**
+ * 返回数据错误
+ */
+public static final int DATA_ERROE = 1001;
+/**
+ * android6.0时候的权限异常
+ */
+public static final int PERMISSION_DENY = 1003;
+/**
+ * 连接超时异常
+ */
+public static final int SOCKET_TIMEOUT_EXCEPTION = 1004;
+/**
+ * 连接异常
+ */
+public static final int CONNECT_EXCEPTION = 1005;
+/**
+ * 未知的服务器
+ */
+public static final int UNKNOWNHOST_EXCEPTION = 1006;
 ```
