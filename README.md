@@ -15,7 +15,7 @@ api 'io.reactivex.rxjava2:rxandroid:2.1.1'
 
 导入retrofit_helper.jar
 
-百度云下载地址：https://pan.baidu.com/s/150fiAmTplVPRdD2KFrTsCg
+百度云下载地址：https://pan.baidu.com/s/1Xdc9eC_BkiibVaP6ukTq_A
 
 ### 使用
 
@@ -78,7 +78,7 @@ public void onFailed(ApiException ex) {
 
 ApiException
 
-```
+```java
 /**
  * 未知错误
  */
@@ -104,3 +104,12 @@ public static final int CONNECT_EXCEPTION = 1005;
  */
 public static final int UNKNOWNHOST_EXCEPTION = 1006;
 ```
+
+### 使用fastjson解析
+
+配置api 'com.alibaba:fastjson:1.2.61' 
+
+继承FastJsonResultData
+
+其他同上
+

@@ -24,7 +24,7 @@ public class RetrofitCallback extends CommonCallback<ResultData> {
         } else {
             if (SUCCESSFUL == resultData.getStatus()) {
                 onSuccess(resultData);
-            } else if (TextUtils.isEmpty(resultData.getMessage())) {
+            } else if (!TextUtils.isEmpty(resultData.getMessage())) {
                 Toast.makeText(MainApplication.getInstance(), resultData.getMessage(), Toast.LENGTH_SHORT).show();
             }
             onRequestCompleted();

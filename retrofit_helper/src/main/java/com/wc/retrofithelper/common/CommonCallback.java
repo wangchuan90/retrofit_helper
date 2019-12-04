@@ -1,22 +1,14 @@
 package com.wc.retrofithelper.common;
 
-import android.widget.Toast;
-
 import com.wc.retrofithelper.api.ApiException;
-
-import java.net.ConnectException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
-
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import retrofit2.HttpException;
 
 /**
  * @author wangchuan
  * @date 2018/5/18 21:12
  */
-public abstract class CommonCallback<T extends CommonResultData> implements Observer<T> {
+public abstract class CommonCallback<T> implements Observer<T> {
     /**
      * 请求成功
      */
