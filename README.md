@@ -32,8 +32,6 @@ application：
         map.put("key4", "value1");
         map.put("key5", "value1");
         RetrofitConfig.getInstance().setMap(map);
-//        设置日志
-        KLog.init(false);
 ```
 
 新建ResultData继承CommonResultData
@@ -41,27 +39,29 @@ application：
 新建RetrofitCallback继承extends CommonCallback<ResultData>
 
 ```java
-public interface WeatherService {
-    @GET("weather/city/{cityId}")
-    Observable<ResultData> getWeatherInfo(@Path("cityId") long cityId);
-}
+    @GET("search")
+    Observable<ResultData> q(@Query("q") String q, @Query("page") int page);
+
+    /**
+     * book/top250?page=0
+     */
+    @GET("book/top250")
+    Observable<ResultData> book( @Query("page") int page);
 ```
 
 请求：
 
 ```java
-RetrofitClient.getInstanceRetrofit().create(WeatherService.class).getWeatherInfo(101030100)
-        .compose(new CommonTransformer()).subscribe(new RetrofitCallback() {
-    @Override
-    public void onSuccess(ResultData resultData) {
-        super.onSuccess(resultData);
-        WeatherInfo weatherInfo = resultData.getData(WeatherInfo.class);
-        if (weatherInfo == null) {
-            return;
-        }
-        textview.setText(new Gson().toJson(weatherInfo));
-    }
-});
+ ApiService.getService(DouBanService.class).book(0)
+                .compose(new CommonTransformer())
+                .subscribe(new RetrofitCallback() {
+                    @Override
+                    public void onSuccess(ResultData resultData) {
+                        super.onSuccess(resultData);
+                        BookInfo bookInfo = resultData.getData(BookInfo.class);
+                       ...
+                    }
+                });
 ```
 
 异常处理：
@@ -104,12 +104,4 @@ public static final int CONNECT_EXCEPTION = 1005;
  */
 public static final int UNKNOWNHOST_EXCEPTION = 1006;
 ```
-
-### 使用fastjson解析
-
-配置api 'com.alibaba:fastjson:1.2.61' 
-
-继承FastJsonResultData
-
-其他同上
 
