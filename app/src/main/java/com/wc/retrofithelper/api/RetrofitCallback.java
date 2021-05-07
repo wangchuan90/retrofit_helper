@@ -5,8 +5,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.wc.retrofithelper.MainApplication;
-import com.wc.retrofithelper.common.CommonCallback;
-
+import com.wc.retrofithelper.callback.CommonCallback;
 
 /**
  * @author wangchuan
@@ -22,10 +21,10 @@ public class RetrofitCallback extends CommonCallback<ResultData> {
         if (resultData == null) {
             onFailed(new ApiException(ApiException.DATA_ERROE, "返回数据错误"));
         } else {
-            if (SUCCESSFUL == resultData.getStatus()) {
+            if (SUCCESSFUL == resultData.getCode()) {
                 onSuccess(resultData);
-            } else if (!TextUtils.isEmpty(resultData.getMessage())) {
-                Toast.makeText(MainApplication.getInstance(), resultData.getMessage(), Toast.LENGTH_SHORT).show();
+            } else if (!TextUtils.isEmpty(resultData.getMsg())) {
+                Toast.makeText(MainApplication.getInstance(), resultData.getMsg(), Toast.LENGTH_SHORT).show();
             }
             onRequestCompleted();
         }

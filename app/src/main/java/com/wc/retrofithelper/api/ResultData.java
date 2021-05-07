@@ -3,8 +3,8 @@ package com.wc.retrofithelper.api;
 import com.wc.retrofithelper.common.CommonResultData;
 
 public class ResultData extends CommonResultData {
-    private int status;
-    private String message;
+    private int code;
+    private String msg;
     private Object data;
 
     @Override
@@ -12,20 +12,20 @@ public class ResultData extends CommonResultData {
         return data;
     }
 
-    public int getStatus() {
-        return status;
+    public int getCode() {
+        return code;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public Object getData() {

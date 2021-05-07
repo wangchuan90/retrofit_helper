@@ -5,7 +5,6 @@ import android.app.Application;
 
 import androidx.multidex.MultiDex;
 
-import com.socks.library.KLog;
 import com.wc.retrofithelper.retrofit.RetrofitConfig;
 
 import java.util.HashMap;
@@ -22,7 +21,7 @@ public class MainApplication extends Application {
         mainApplication = this;
         MultiDex.install(this);
 //        设置url
-        RetrofitConfig.getInstance().init("http://t.weather.sojson.com/api/");
+        RetrofitConfig.getInstance().init("http://106.55.173.177:8081/index.php/");
 //        设置请求头参数
         Map<String, Object> map = new HashMap<>(50);
         map.put("key1", "value1");
@@ -31,8 +30,6 @@ public class MainApplication extends Application {
         map.put("key4", "value1");
         map.put("key5", "value1");
         RetrofitConfig.getInstance().setMap(map);
-//        设置日志
-        KLog.init(true);
     }
 
     public static MainApplication getInstance() {

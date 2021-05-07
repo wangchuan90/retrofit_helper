@@ -1,4 +1,4 @@
-package com.wc.retrofithelper.common;
+package com.wc.retrofithelper.callback;
 
 import com.wc.retrofithelper.api.ApiException;
 import io.reactivex.Observer;
