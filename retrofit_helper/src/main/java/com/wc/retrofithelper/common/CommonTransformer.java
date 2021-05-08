@@ -12,7 +12,7 @@ import io.reactivex.schedulers.Schedulers;
  * @author wangchuan
  */
 
-public class CommonTransformer implements ObservableTransformer {
+public class CommonTransformer<T> implements ObservableTransformer<T, T> {
 
     @Override
     public ObservableSource apply(Observable observable) {

@@ -1,25 +1,42 @@
 # retrofithelper
 二次封装retrofit，提高开发效率
 
-### 配置
-
-基本依赖
+### Gradle
 
 ```
-api 'com.squareup.retrofit2:retrofit:2.6.2'
-api 'com.squareup.retrofit2:converter-gson:2.6.2'
-api 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
-api 'com.squareup.okhttp3:logging-interceptor:4.2.2'
-api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
 ```
 
-导入retrofit_helper.jar
-
-百度云下载地址：https://pan.baidu.com/s/1Xdc9eC_BkiibVaP6ukTq_A
+```
+implementation 'com.github.wangchuan90:retrofithelper:v1.0.0'
+```
 
 ### 使用
 
-application：
+1.新建ResultData继承CommonResultData
+
+2.新建RetrofitCallback继承extends CommonCallback<ResultData>
+
+3.配置接口
+
+```java
+    @GET("search")
+    Observable<ResultData> q(@Query("q") String q, @Query("page") int page);
+
+    /**
+     * book/top250?page=0
+     */
+    @GET("book/top250")
+    Observable<ResultData> book( @Query("page") int page);
+```
+
+4.application：
 
 ```java
 //        设置url
@@ -32,21 +49,6 @@ application：
         map.put("key4", "value1");
         map.put("key5", "value1");
         RetrofitConfig.getInstance().setMap(map);
-```
-
-新建ResultData继承CommonResultData
-
-新建RetrofitCallback继承extends CommonCallback<ResultData>
-
-```java
-    @GET("search")
-    Observable<ResultData> q(@Query("q") String q, @Query("page") int page);
-
-    /**
-     * book/top250?page=0
-     */
-    @GET("book/top250")
-    Observable<ResultData> book( @Query("page") int page);
 ```
 
 请求：
@@ -64,44 +66,5 @@ application：
                 });
 ```
 
-异常处理：
 
-```
-/**
- * 公共失败处理
- */
-@Override
-public void onFailed(ApiException ex) {
-    Toast.makeText(MainApplication.getInstance(), ex.getErrorMsg(), Toast.LENGTH_SHORT).show();
-}
-```
-
-ApiException
-
-```java
-/**
- * 未知错误
- */
-public static final int UNKNOWN = 1000;
-/**
- * 返回数据错误
- */
-public static final int DATA_ERROE = 1001;
-/**
- * android6.0时候的权限异常
- */
-public static final int PERMISSION_DENY = 1003;
-/**
- * 连接超时异常
- */
-public static final int SOCKET_TIMEOUT_EXCEPTION = 1004;
-/**
- * 连接异常
- */
-public static final int CONNECT_EXCEPTION = 1005;
-/**
- * 未知的服务器
- */
-public static final int UNKNOWNHOST_EXCEPTION = 1006;
-```
 

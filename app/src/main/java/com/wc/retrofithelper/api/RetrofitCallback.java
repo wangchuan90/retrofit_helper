@@ -2,9 +2,8 @@ package com.wc.retrofithelper.api;
 
 
 import android.text.TextUtils;
-import android.widget.Toast;
+import android.util.Log;
 
-import com.wc.retrofithelper.MainApplication;
 import com.wc.retrofithelper.callback.CommonCallback;
 
 /**
@@ -24,7 +23,7 @@ public class RetrofitCallback extends CommonCallback<ResultData> {
             if (SUCCESSFUL == resultData.getCode()) {
                 onSuccess(resultData);
             } else if (!TextUtils.isEmpty(resultData.getMsg())) {
-                Toast.makeText(MainApplication.getInstance(), resultData.getMsg(), Toast.LENGTH_SHORT).show();
+                Log.e("RetrofitCallback", resultData.getMsg());
             }
             onRequestCompleted();
         }
@@ -52,7 +51,7 @@ public class RetrofitCallback extends CommonCallback<ResultData> {
      */
     @Override
     public void onFailed(ApiException ex) {
-        Toast.makeText(MainApplication.getInstance(), ex.getErrorMsg(), Toast.LENGTH_SHORT).show();
+        Log.e("RetrofitCallback", ex.getErrorMsg());
     }
 
 
