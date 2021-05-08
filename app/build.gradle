@@ -29,6 +29,6 @@ ext {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
-//    implementation 'com.github.wangchuan90:retrofithelper:63c8d9d151'
+//    implementation 'com.github.wangchuan90:retrofithelper:v1.0-SNAPSHOT'
     implementation(project("::retrofit_helper"))
 }

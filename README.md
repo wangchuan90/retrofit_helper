@@ -14,7 +14,7 @@ allprojects {
 ```
 
 ```
-implementation 'com.github.wangchuan90:retrofithelper:v1.0.0'
+implementation 'com.github.wangchuan90:retrofithelper:v1.0-SNAPSHOT'
 ```
 
 ### 使用
